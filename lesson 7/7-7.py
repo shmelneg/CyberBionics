@@ -18,3 +18,7 @@ print()
 people.sort(key=itemgetter("KPI"), reverse=True)
 for person in people:
     print(person)
+
+#change occupation of Ivanov to "driver"
+people[1]["посада"] = input("Enter new role of the employee: ")
+print(people[1])
