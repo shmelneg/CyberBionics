@@ -3,7 +3,7 @@ def main():
         try:
             height = int(input("Please enter your height in cm: "))
             weight = int(input("Please enter your weight in kg: "))
-        except:
+        except ValueError:
             print("Let's try again but with NUMBERS only")
 
         bmi = body_mass_index(height, weight)
