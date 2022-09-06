@@ -40,8 +40,8 @@ def calculator():
             print(f"a * b = {result}")
         case "/":
             try:
-                result = a + b
-                print(f"a + b = {result}")
+                result = a / b
+                print(f"a / b = {result}")
             except ZeroDivisionError:
                 print("Numbers cannot be divided by zero")
         case "**":
