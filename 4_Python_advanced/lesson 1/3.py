@@ -1,16 +1,20 @@
-from functools import lru_cache
+def decorator(fn):
+    def decorated_fn(*args, **kwargs):
+        result = fn(*args, **kwargs)
+        return list(filter(lambda x: x % 2 == 0, result))
 
-# Тут функцію обчислення чисел Фібоначчі записано рекурсивно, але по
-# продуктивності та витрати пам'яті вона буде порівнянна з нерекурсивною
-
-
-@lru_cache(maxsize=None)
-def fibonacci(index):
-    if index < 2:
-        return 1
-    else:
-        return fibonacci(index - 1) + fibonacci(index - 2)
+    return decorated_fn
 
 
-for i in range(1, 100):
-    print(fibonacci(i))
+@decorator
+def fibonacci(n):
+    if n == 1:
+        return [1]
+    if n == 2:
+        return [1, 1]
+    fib_list = [1, 1]
+    for _ in range(2, n):
+        fib_list.append(fib_list[-1] + fib_list[-2])
+    return fib_list
+
+print(fibonacci(20))
