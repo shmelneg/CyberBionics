@@ -1,13 +1,15 @@
 import os
 import socket
 
-unix_sock_name = 'unix.sock'
+SERVER_FILE = 'unix_server.sock'
+CLIENT_FILE = 'unix_client.sock'
+
 sock = socket.socket(socket.AF_UNIX, socket.SOCK_DGRAM)
 
-if os.path.exists(unix_sock_name):
-    os.remove(unix_sock_name)
+if os.path.exists(SERVER_FILE):
+    os.remove(SERVER_FILE)
 
-sock.bind(unix_sock_name)
+sock.bind(SERVER_FILE)
 
 while True:
     try:
@@ -16,6 +18,7 @@ while True:
         sock.close()
         break
     else:
-        numbers = (str(result.decode('utf-8'))).split(',')
-        output = map(int, numbers)
-        sock.sendto(sum(output), 'unix.sock')
+        numbers = (result.decode('utf-8')).split(',')
+        integers = map(int, numbers)
+        message = str(sum(integers))
+        sock.sendto(str.encode(message), CLIENT_FILE)
