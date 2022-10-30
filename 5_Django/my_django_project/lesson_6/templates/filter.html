@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <h2>Flights from London</h2>
+        <ul>
+            {% for flight in london_flights %}
+            <li>{{ flight }}</li>
+            {% endfor %}
+        </ul>
+    <h2>Departure starts with "L"</h2>
+        <ul>
+            {% for flight in l_airport %}
+            <li>{{ flight }}</li>
+            {% endfor %}
+        </ul>
+    <h2>Passengers from Ukraine</h2>
+        <ul>
+            {% for person in ua_people %}
+            <li>{{ person }}</li>
+            {% endfor %}
+        </ul>
+{% endblock %}

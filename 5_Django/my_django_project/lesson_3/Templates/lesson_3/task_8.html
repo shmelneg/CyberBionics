@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 8</title>
+</head>
+<body>
+    {% if questions %}
+        <ul>
+            {% for question in questions %}
+                <li><a href="/polls/{{question.id}}/">{{question.question_text}}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+    <li>Список запитань порожній</li>
+    {% endif %}
+</body>
+</html>

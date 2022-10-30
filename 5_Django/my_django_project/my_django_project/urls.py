@@ -1,4 +1,4 @@
-"""lecture_1 URL Configuration
+"""my_django_project URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.1/topics/http/urls/
@@ -20,4 +20,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("lesson_1/", include("lesson_1.urls")),
     path("lesson_1_1/", include("lesson_1_1.urls")),
+    path("lesson_3/", include("lesson_3.urls")),
+    path("lesson_5/", include("lesson_5.urls")),
+    path("lesson_6/", include("lesson_6.urls")),
 ]
