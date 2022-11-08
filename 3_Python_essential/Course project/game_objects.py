@@ -50,6 +50,7 @@ class AbstractPlayer(abc.ABC):
     def __str__(self):
         return f"{self.name}'s cards: {self.cards}\n{self.name}'s points: {self.points}"
 
+
 class Player(AbstractPlayer):
 
     def __init__(self):
