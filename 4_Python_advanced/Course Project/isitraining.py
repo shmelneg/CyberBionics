@@ -11,7 +11,7 @@ def main():
         content = requests.get(url).text
 
         data = json.loads(content)
-        # print(data)
+        print(data)
         result = data['result'][::-1]
         needed_part = None
 
